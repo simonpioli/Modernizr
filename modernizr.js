@@ -24,7 +24,7 @@
 
 ;(function(window, document, undefined){
   var tests = [];
-  
+
 
   /**
    *
@@ -44,7 +44,9 @@
       'classPrefix': '',
       'enableClasses': true,
       'enableJSClass': true,
-      'usePrefixes': true
+      'usePrefixes': true,
+      'enableDataAttribute': false,
+      'dataAttributeName': 'data-features'
     },
 
     // Queue of tests
@@ -73,7 +75,7 @@
     }
   };
 
-  
+
 
   // Fake some of Object.create so we can force non test results to be non "own" properties.
   var Modernizr = function() {};
@@ -83,10 +85,10 @@
   // Overwrite name so constructor name is nicer :D
   Modernizr = new Modernizr();
 
-  
+
 
   var classes = [];
-  
+
 
   /**
    * is returns a boolean if the typeof an obj is exactly type.
@@ -181,7 +183,7 @@
    */
 
   var docElement = document.documentElement;
-  
+
 
   /**
    * A convenience helper to check if the document we are running in is an SVG document
@@ -191,7 +193,7 @@
    */
 
   var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-  
+
 
   /**
    * setClasses takes an array of class names and adds them to the root element
@@ -225,6 +227,9 @@
         docElement.className.baseVal = className;
       } else {
         docElement.className = className;
+        if (Modernizr._config.enableDataAttribute) {
+          docElement.setAttribute(Modernizr._config.dataAttributeName, className);
+        }
       }
     }
 
