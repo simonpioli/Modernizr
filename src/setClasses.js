@@ -31,6 +31,9 @@ define(['Modernizr', 'docElement', 'isSVG'], function(Modernizr, docElement, isS
         docElement.className.baseVal = className;
       } else {
         docElement.className = className;
+        if (Modernizr._config.enableDataAttribute) {
+          docElement.setAttribute(Modernizr._config.dataAttributeName, className);
+        }
       }
     }
 

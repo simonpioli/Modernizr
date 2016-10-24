@@ -17,7 +17,9 @@ define(['tests'], function(tests) {
       'classPrefix': '',
       'enableClasses': true,
       'enableJSClass': true,
-      'usePrefixes': true
+      'usePrefixes': true,
+      'enableDataAttribute': true,
+      'dataAttributeName': 'data-features'
     },
 
     // Queue of tests
