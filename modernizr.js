@@ -45,7 +45,7 @@
       'enableClasses': true,
       'enableJSClass': true,
       'usePrefixes': true,
-      'enableDataAttribute': false,
+      'enableDataAttribute': true,
       'dataAttributeName': 'data-features'
     },
 
